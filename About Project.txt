@@ -1,0 +1,7 @@
+Title of my project is Inventory Management System.
+In this project i have used python & Django framework as server side code MySQL database as back end HTML5, 
+CSS, DTL for front end ORM for database interaction and PyCharm editor.
+The main objective of this project is to manage the shop order details. 
+This project will be used by Shop admin. This project has a sign in page and login page for Staff members. 
+The main feature of this project is, admin or staff can insert, view in table format, 
+can update Product details, Location details and delete the Product Movement details.
