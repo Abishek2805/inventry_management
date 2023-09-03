@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    {% block extra_css %}
+
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <img src="static/images/fruits.jpg" alt="Fruits" style="width:40px;" class="rounded-pill">FARMER FRUITS SHOP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav class="navbar navbar-expand-sm  me-5s bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="add_fruit">Add New Fruits</a>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="logout">Log Out</a>
+      </div>
+    </nav>
+  </div>
+</nav>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Fruits Name</th>
+      <th scope="col">Edit</th>
+
+    </tr>
+  </thead>
+  {% for item in fruit %}
+    <tbody>
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td><a href="/edit_fruit/{{item.id}}/" style="text-decoration: none;">Edit</a></td>
+      </tr>
+    </tbody>
+  {% endfor %}
+
+
+
+</table>
+</body>
+</html>

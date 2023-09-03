@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    {% block extra_css %}
+
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <img src="static/images/fruits.jpg" alt="Fruits" style="width:40px;" class="rounded-pill">FARMER FRUITS SHOP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav class="navbar navbar-expand-sm  me-5s bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/add_movement/"> Make New Order Movements</a>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="logout">Log Out</a>
+      </div>
+    </nav>
+  </div>
+</nav>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FRUIT NAME</th>
+      <th scope="col">FROM LOCATION</th>
+      <th scope="col">TO LOCATION</th>
+      <th scope="col">ASSIGNED BY</th>
+      <th scope="col">QUANTITY</th>
+      <th scope="col">ASSIGNED TIME</th>
+      <th scope="col">EDIT </th>
+      <th scope="col">DELETE</th>
+
+    </tr>
+  </thead>
+  {% for item in data %}
+    <tbody>
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.f_name }}</td>
+        <td>{{ item.from_location }}</td>
+        <td>{{ item.to_location }}</td>
+        <td>{{ item.p_name }}</td>
+        <td>{{ item.quantity }} Kg</td>
+        <td>{{ item.time_stamp }}</td>
+        <td><a href="{% url 'edit_movement' item.id %}" style="text-decoration: none;">Edit</a></td>
+        <td><a href="{% url 'delete_movement' item.id %}" style="text-decoration: none;">Delete</a></td>
+      </tr>
+    </tbody>
+  {% endfor %}
+
+
+
+</table>
+</body>
+</html>
